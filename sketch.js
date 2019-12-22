@@ -9,6 +9,7 @@ var gameOver = false;
 var initialLength = 5;
 
 function setup(){
+	// scales canvas size to device
 	if(displayWidth < displayHeight){
 		var size = displayWidth/2;
 		var offset = 100;
@@ -26,6 +27,7 @@ function setup(){
 }
 
 function draw(){
+	//basic game loop
 	if(!gameOver){
 		clear();
 		fill(255,255,255);
@@ -45,8 +47,9 @@ function draw(){
 		}
 	}
 }
-
+// snake head contains recursive trail of snake body squares
 class Head{
+	//sends old position to body so it lags behind
 	constructor(x,y,length){
 		this.xPos = x;
 		this.yPos = y;
@@ -86,6 +89,7 @@ class Head{
 		this.child.drawBody();
 	}
 }
+
 
 class Body{
 	constructor(x,y,remaining){
@@ -136,6 +140,7 @@ class Body{
 			this.child.drawBody();
 	}
 }
+// apple visibility not used now, but could be used for some features
 class Apple{
 	constructor(visible){
 		this.visible = visible;
@@ -154,6 +159,7 @@ class Apple{
 	}
 }
 
+// basic key handler, doesn't allow user to reverse back on itself (e.g. go from right to left)
 function keyPressed(){
 	if (keyCode === LEFT_ARROW && xVel == 0) {
 		xVel = -speed;
