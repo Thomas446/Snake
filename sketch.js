@@ -161,19 +161,19 @@ class Apple{
 
 // basic key handler, doesn't allow user to reverse back on itself (e.g. go from right to left)
 function keyPressed(){
-	if (keyCode === LEFT_ARROW && xVel == 0) {
+	if (keyCode === LEFT_ARROW && xVel == 0 && snakeHead.xPos == snakeHead.child.xPos) {
 		xVel = -speed;
 		yVel = 0;
 		hasMoved = true;
-  } else if (keyCode === RIGHT_ARROW && xVel == 0) {
+  } else if (keyCode === RIGHT_ARROW && xVel == 0 && snakeHead.xPos == snakeHead.child.xPos) {
 		xVel = speed;
 		yVel = 0;
 		hasMoved = true;
-  } else if (keyCode === UP_ARROW && yVel == 0) {
+  } else if (keyCode === UP_ARROW && yVel == 0 && snakeHead.yPos == snakeHead.child.yPos) {
 		xVel = 0;
 		yVel = -speed;
 		hasMoved = true;
-  } else if (keyCode === DOWN_ARROW && yVel == 0) {
+  } else if (keyCode === DOWN_ARROW && yVel == 0 && snakeHead.yPos == snakeHead.child.yPos) {
 		xVel = 0;
 		yVel = speed;
 		hasMoved = true;
